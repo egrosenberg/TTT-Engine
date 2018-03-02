@@ -8,8 +8,8 @@ Display::Display()
 	
 	m_Rect.x = 300;
 	m_Rect.y = 300;
-	m_Rect.w = 100;
-	m_Rect.h = 100;
+	m_Rect.w = 30;
+	m_Rect.h = 30;
 
 	m_PastRect = m_Rect;
 	
@@ -49,26 +49,34 @@ void Display::Update()
 	SDL_FillRect(m_Surface, &m_PastRect, tempColor);
 
 
-	if(tempInput->GetKeyPressed(115) == true)
+	if(tempInput->GetKeyPressed(115) || tempInput->GetKeyPressed(1073741905))
+	//115 = s
+	//1073741905 = Downarrow
 	{
-		m_Rect.y += m_Rect.w	;	
+		m_Rect.y += m_Rect.w;
 	}
-	else if(tempInput->GetKeyPressed(119) == true)
+	else if(tempInput->GetKeyPressed(119) || tempInput->GetKeyPressed(1073741906))
+	//119 = w
+	//1073741906 = Uparrow
 	{
-		m_Rect.y -= m_Rect.w;	
+		m_Rect.y -= m_Rect.w;
 	}
-	else if(tempInput->GetKeyPressed(100) == true)
+	else if(tempInput->GetKeyPressed(100) || tempInput->GetKeyPressed(1073741903))
+	//100 = d
+	//1073741903 = Rightarrow
 	{
-		m_Rect.x += m_Rect.w;	
+		m_Rect.x += m_Rect.w;
 	}
-	else if(tempInput->GetKeyPressed(97) == true)
+	else if(tempInput->GetKeyPressed(97) || tempInput->GetKeyPressed(1073741904))
+	//97 = a
+	//1073741904 = Leftarrow
 	{
-		m_Rect.x -= m_Rect.w;	
+		m_Rect.x -= m_Rect.w;
 	}
 	SDL_FillRect(m_Surface, &m_Rect, tempColor);
 
 	SDL_UpdateWindowSurface(m_Window);
-	SDL_Delay(100);
+	SDL_Delay(10);
 	SDL_FillRect(m_Surface, NULL, 0x000000);
 	m_PastRect = m_Rect;
 }
