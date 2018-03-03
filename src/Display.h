@@ -1,4 +1,4 @@
-0#ifndef DISPLAY_H
+#ifndef DISPLAY_H
 #define DISPLAY_H
 
 #include <SDL2/SDL.h>
@@ -16,19 +16,23 @@ private:
 	int m_WinY;
 	
 	SDL_Rect m_Rect;
-	SDL_Rect m_PastRect;
+	SDL_Rect m_PastRect [500];
 	
 	SDL_Rect m_BGRect;
 	Uint32 m_BGcolor;
 	
 	SDL_Window* m_Window;
 	SDL_Surface* m_Surface;
+	
+	int m_Direction;
+	//0 = south, 1 = north, 2 = east, 3 = west
+	int m_Length;
 
 public:
 	Display();
 	
 	
-	void Update();
+	bool Update();
 	SDL_Window* getWindow()
 	{
 		return m_Window;

@@ -12,7 +12,7 @@ int main()
 	while (running)
 	{
 		input->Update();
-		window->Update();
+		running = window->Update();
 	}
 	
 }
