@@ -175,6 +175,6 @@ void Display::DrawRect(int posX, int posY, int width, int height, Uint32 color)
 Display::~Display()
 {
 	SDL_DestroyWindow(m_Window);
-	SDL_Quit();	
-}SDL_MapRGB(m_Surface->format,0x00,0x00,0x00);
+	SDL_Quit();
 	int speed = 1;
+}
