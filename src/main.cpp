@@ -1,10 +1,12 @@
 #include "main.h"
 
+Display*  e_Display = new Display();
+
 int main()
 {
-	Display *window;
+	//Display *window;
 	Controller *input;
-	window = new Display();
+	//window = new Display();
 	input = new Controller();
 	
 	bool running = true;
@@ -12,7 +14,7 @@ int main()
 	while (running)
 	{
 		input->Update();
-		running = window->Update();
+		running = e_Display->Update();
 	}
 	
 }

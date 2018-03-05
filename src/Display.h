@@ -6,12 +6,11 @@
 #include <SDL/SDL_image.h>
 #include <time.h>
 #include <cstdlib>
-#include "Controller.h"
 
-
+#include "main.h"
 
 class Display
-{//yeet
+{
 private:
 	int m_WinX;
 	int m_WinY;
@@ -36,11 +35,11 @@ public:
 	
 	
 	bool Update();
-	SDL_Window* getWindow()
+	SDL_Window* GetWindow()
 	{
 		return m_Window;
 	}
-	SDL_Surface* getsurface()
+	SDL_Surface* GetSurface()
 	{
 		return m_Surface;
 	}	

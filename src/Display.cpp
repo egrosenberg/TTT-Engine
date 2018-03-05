@@ -3,7 +3,6 @@
 Display::Display()
 {
 	srand(time(NULL));
-	Uint32 start;
 	m_WinX = 800;
 	m_WinY = 800;
 
@@ -40,13 +39,13 @@ Display::Display()
 			   "Thomas the Tank",
 			   0, 0,
 			   m_WinX, m_WinY,
-			   SDL_WINDOW_SHOWN
+			   SDL_WINDOW_RESIZABLE
 			   );
 	
 	m_Surface = SDL_GetWindowSurface(m_Window);
 	
-	m_BGcolor = SDL_MapRGB(m_Surface->format,0x77,0x00,0x00);
-	m_FruitColor = SDL_MapRGB(m_Surface->format, 0, 200, 0);
+	m_BGcolor = SDL_MapRGB(m_Surface->format,130,0,0);
+	//m_FruitColor = SDL_MapRGB(m_Surface->format, 0, 200, 0);
 	
 	m_Direction = 2;
 
@@ -134,10 +133,8 @@ break;
 	*/
 
 	SDL_FillRect(m_Surface, &m_BGRect, m_BGcolor);
-	
 	SDL_UpdateWindowSurface(m_Window);
-	SDL_Delay(10);
-	SDL_FillRect(m_Surface, NULL, 0x000000);
+	//SDL_FillRect(m_Surface, NULL, 0x000000);
 	
 	
 	/*
@@ -176,5 +173,4 @@ Display::~Display()
 {
 	SDL_DestroyWindow(m_Window);
 	SDL_Quit();	
-}SDL_MapRGB(m_Surface->format,0x00,0x00,0x00);
-	int speed = 1;
+}

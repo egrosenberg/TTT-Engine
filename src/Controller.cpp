@@ -2,10 +2,14 @@
 
 Controller::Controller()
 {
+	m_X = 100;
+	m_Y = 100;
 }
 
 void Controller::Update()
 {
+	std::cout<< m_X << " , " << m_Y << std::endl;
+	SDL_GetMouseState(&m_X, &m_Y);
 	while(SDL_PollEvent (&m_Event))
 	{
 		switch(m_Event.type)
@@ -28,6 +32,7 @@ void Controller::Update()
 				break;
 		}
 	}
+	
 	SDL_GetMouseState(&m_X, &m_Y);
 	std::cout<< m_X << " , " << m_Y << std::endl;
 }
