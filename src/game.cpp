@@ -46,6 +46,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	{
 		isRunning = false;
 	}
+	
+	SDL_Surface* tmpSurface = IMG_Load("assets/test.png");
+	playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	SDL_FreeSurface(tmpSurface);
 }
 
 void Game::handleEvents()
@@ -54,6 +58,16 @@ void Game::handleEvents()
 	SDL_PollEvent(&event);
 	switch (event.type)
 	{
+		// Keyboard handling
+		case SDL_KEYDOWN:
+			switch( event.key.keysym.sym ){
+                case SDLK_ESCAPE:
+					isRunning = false;
+					break;
+				default:
+					break;
+			}
+		// Exit button handling
 		case SDL_QUIT:
 			isRunning = false;
 			break;
@@ -72,6 +86,7 @@ void Game::render()
 	SDL_RenderClear(renderer);
 	
 	// Draw shit
+	SDL_RenderCopy(renderer, playerTex, NULL, NULL);
 	
 	SDL_RenderPresent(renderer);
 }
